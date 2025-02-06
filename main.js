@@ -41,6 +41,21 @@ document.addEventListener('DOMContentLoaded', () => {
                     display.textContent = displayedNum + keyContent;
                 }
             }
+
+            if (action === 'decimal') {
+                display.textContent = displayedNum + '.';
+            }
+
+            if (action === 'add' || action === 'subtract' || action === 'multiply' || action === 'divide') {
+                key.classList.add('is-depressed');
+            }
         }
     });
+
+    keys.addEventListener('click', e => {
+        if (e.target.matches('button')) {
+            const key = e.target;
+            Array.from(key.parentNode.children).forEach(k => k.classList.remove('is-depressed'));
+        }
+    }); 
 });
